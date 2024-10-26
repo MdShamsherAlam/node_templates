@@ -41,6 +41,7 @@ class Auth {
 			user.socket?.remoteAddress;
 
 	
+			
 			let data = await sequelize.query(
 				"SELECT * FROM `department_users` WHERE department_username = ? AND status = 'Active'",
 				{

@@ -33,10 +33,12 @@ class Auth {
 		try {
 			console.log(body)
 
-			const ip = 
-			requestIp.getClientIp(user)
-
-	
+			const ip =
+            req.headers['x-forwarded-for']?.split(',')[0] || 
+            req.connection?.remoteAddress ||                  
+            req.socket?.remoteAddress ||                      
+            req.connection?.socket?.remoteAddress ||          
+            '127.0.0.1';
 			
 			let data = await sequelize.query(
 				"SELECT * FROM `department_users` WHERE department_username = ? AND status = 'Active'",

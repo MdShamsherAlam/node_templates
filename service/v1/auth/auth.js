@@ -34,11 +34,7 @@ class Auth {
 			console.log(body)
 
 			const ip = 
-			requestIp.getClientIp(user) || 
-			user.headers['x-forwarded-for']?.split(',')[0] || 
-			user.headers['x-real-ip'] || 
-			user.connection?.remoteAddress || 
-			user.socket?.remoteAddress;
+			requestIp.getClientIp(user)
 
 	
 			

@@ -34,10 +34,10 @@ class Auth {
 			console.log(body)
 
 			const ip =
-            req.headers['x-forwarded-for']?.split(',')[0] || 
-            req.connection?.remoteAddress ||                  
-            req.socket?.remoteAddress ||                      
-            req.connection?.socket?.remoteAddress ||          
+            user.headers['x-forwarded-for']?.split(',')[0] || 
+            user.connection?.remoteAddress ||                  
+            user.socket?.remoteAddress ||                      
+            user.connection?.socket?.remoteAddress ||          
             '127.0.0.1';
 			
 			let data = await sequelize.query(
